@@ -15,12 +15,12 @@
     BeforeTargets="_GenerateRestoreProjectSpec;GenerateNuspec;BeforeBuild"
   >
 
-    <Exec Command='git describe --abbrev=60 --long'
-          WorkingDirectory="$(MSBuildProjectDirectory)"
-          ConsoleToMSBuild="true"
-          StandardOutputImportance="Low">
-      <Output TaskParameter="ConsoleOutput" PropertyName="PowerShellVersion" />
-    </Exec>
+    <!-- <Exec Command='git describe --abbrev=60 --long' -->
+          <!-- WorkingDirectory="$(MSBuildProjectDirectory)" -->
+          <!-- ConsoleToMSBuild="true" -->
+          <!-- StandardOutputImportance="Low"> -->
+      <!-- <Output TaskParameter="ConsoleOutput" PropertyName="PowerShellVersion" /> -->
+    <!-- </Exec> -->
 
     <PropertyGroup Condition = "'$(ReleaseTag)' != ''">
       <!--
@@ -153,6 +153,17 @@
     <AssemblyOriginatorKeyFile>../signing/visualstudiopublic.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <HighEntropyVA>true</HighEntropyVA>
+    
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzers>false</RunAnalyzers>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+    <AnalysisMode>None</AnalysisMode>
+    <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    
   </PropertyGroup>
 
   <PropertyGroup>

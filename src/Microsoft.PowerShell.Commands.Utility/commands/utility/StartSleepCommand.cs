@@ -116,7 +116,7 @@ namespace Microsoft.PowerShell.Commands
                     {
                         PSArgumentException argumentException = PSTraceSource.NewArgumentException(
                             nameof(Duration),
-                            StartSleepStrings.MaximumDurationExceeded,
+                            "StartSleepStrings.MaximumDurationExceeded",
                             TimeSpan.FromMilliseconds(int.MaxValue),
                             Duration);
 
